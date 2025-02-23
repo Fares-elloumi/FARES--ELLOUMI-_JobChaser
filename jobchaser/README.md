@@ -83,4 +83,44 @@ useEffect-hooken i React används för att utföra side effects i funktionella k
 ### Vad är syftet kring den s.k dependency-arrayen i useEffect?
 Dependency-arrayen i useEffect definierar när effekten ska köras. Om arrayen finns på slutet av useEffect, kommer den effektiva koden att köras igen om någon av de angivna "dependencies" förändras mellan renderingarna. Om ingen dependency-array ges, körs effekten efter varje rendering (vilket kan leda till prestandaproblem). Om en tom array ges ([]), körs effekten bara en gång när komponenten mountas (motsvarande componentDidMount).
 
+## Vecka 3:
+
+### Vilka fördelar finns det med att använda NextJS? Nackdelar?
+Fördelar: Next.js erbjuder snabbare prestanda med SSR och SSG, bättre SEO, enkel filbaserad routing och inbyggd API-hantering.
+Nackdelar: Kan vara mer komplext än vanlig React, större byggstorlek och kräver en servermiljö för vissa funktioner.
+
+### Vad menas med Routing? På vilket sätt löser NextJS Routing v.s "vanliga React"?
+Routing handlar om att hantera navigationen mellan olika sidor i en webbapplikation. Det gör det möjligt att ladda olika komponenter beroende på URL:en.
+Vanlig React: Använder bibliotek som React Router, där utvecklare manuellt definierar routes och hanterar sidnavigering.
+Next.js: Har filbaserad routing, där sidor skapas automatiskt utifrån filstrukturen i pages/-mappen, vilket gör det enklare och mer organiserat.
+
+### Vad menas med Reacts ekosystem? Nämn några viktiga bibliotek i Reacts ekosystem?
+Reacts ekosystem består av verktyg, bibliotek och ramverk som underlättar utvecklingen av React-applikationer. Det inkluderar allt från state management till UI-komponentbibliotek och routing.
+Viktiga bibliotek i Reacts ekosystem:
+
+-React Router – Hanterar navigering och routing i React-appar.
+-Redux / Zustand / Recoil – Hanterar global state management.
+-React Query – Effektiv hantering av serverdata och cachning.
+-Material-UI / Tailwind CSS – UI-komponentbibliotek och styling.
+-Next.js – Ramverk för server-rendering och förbättrad prestanda.
+
+### Vad är syftet med useContext? Vilket problem med props löser den?
+UseContext används för att hantera global state och dela data mellan komponenter utan att behöva skicka props genom flera nivåer i komponentträdet.
+Den löser "prop drilling", vilket är när props måste skickas genom flera mellanliggande komponenter bara för att nå en djupare nivå. Med useContext kan data hämtas direkt av den komponent som behöver den, vilket gör koden renare och enklare att underhålla.
+
+## Vecka 4:
+
+### Vad är Redux Toolkit? 
+Redux Toolkit (RTK) är ett officiellt verktyg för Redux som förenklar hantering av global state i React-applikationer. Det minskar mängden kod och förbättrar utvecklarupplevelsen genom att erbjuda enklare syntax, inbyggd "immer" för immutabla uppdateringar och asynkron hantering.
+
+### När, i vilka situationer vill man använda Redux Toolkit?
+Man vill använda Redux Toolkit när man deladar state mellan många komponenter, många komponenter behöver samma data och när appen har asynkrona flöden, såsom API-anrop.
+
+
+
+
+
+
+
+
 

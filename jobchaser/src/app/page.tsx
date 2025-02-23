@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./globals.css";
 import SearchBar from "./components/search";
 import JobbLista, { Job } from "./components/jobbLista";
+import FilterComponent from "./components/FilterSelektor"
 
 function App() {
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
@@ -11,8 +12,9 @@ function App() {
   return (
     <main>
       <h1>Lediga Jobb</h1>
-      <SearchBar onJobsFiltered={setFilteredJobs} />
-      <JobbLista jobs={filteredJobs} />
+      <SearchBar  />
+      <FilterComponent/>
+      <JobbLista  />
     </main>
   );
 }

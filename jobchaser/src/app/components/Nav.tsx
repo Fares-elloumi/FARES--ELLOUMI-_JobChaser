@@ -9,7 +9,7 @@ export default function Nav() {
         {/* <li><Link href="/">Hem</Link></li> */}
         <li><Link href="/jobs">Jobb</Link></li>
         <li><Link href="/signin">Logga in</Link></li>
-        <li><Link href="/signup">Registrera</Link></li>
+        {/* <li><Link href="/signup">Registrera</Link></li> */}
       </ul>
     </nav>
   );

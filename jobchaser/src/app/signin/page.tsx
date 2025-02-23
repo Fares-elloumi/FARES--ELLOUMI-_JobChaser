@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 export default function SignInPage() {
@@ -16,7 +16,9 @@ export default function SignInPage() {
             <input {...register("email")} type="email" placeholder="E-post" required />
             <input {...register("password")} type="password" placeholder="Lösenord" required />
             <button type="submit">Logga in</button>
+            <p>Har du inget konto? <Link href="/signup" className="text-blue-500 underline hover:text-blue-600 focus:text-blue-500 active:text-blue-500 visited:text-blue-500">Registrera dig här</Link></p>
         </form>
+        
     </div>
   );
 }

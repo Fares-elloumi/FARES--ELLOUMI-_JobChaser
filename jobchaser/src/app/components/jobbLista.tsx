@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { RootState } from "./../redux/store";
+import { useGetjobsQuery } from "./../redux/services/jobsAPI";
 
 export type Job = {
   id: number;
@@ -13,24 +16,28 @@ export type Job = {
   tools: string[];
 };
 
-type JobbListaProps = {
-  jobs: Job[];
-};
+export default function JobbLista() {
+  const { data: jobs, isLoading, error } = useGetjobsQuery(undefined);
+  const category = useSelector((state: RootState) => state.filter.category);
+  const searchTerm = useSelector((state: RootState) => state.filter.searchTerm);
 
-export default function JobbLista({ jobs }: JobbListaProps) {
-  // if (!Array.isArray(jobs)) {
-  //   return <p className="error">Fel: Jobbdata är inte i rätt format.</p>;
-  // }
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Fel vid hämtning av jobb: {JSON.stringify(error)}</div>;
+
+  // 🔥 Filtrera jobben baserat på kategori och sökning
+  const filteredJobs = jobs?.filter((job:Job) =>
+    (!category || job.role === category) &&
+    job.position.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <ul>
-      {jobs.length > 0 ? (
-        jobs.map((job) => (
+      {filteredJobs.length > 0 ? (
+        filteredJobs.map((job:Job) => (
           <li key={job.id} className="job-card">
             <img src={job.logo} alt={job.company} className="job-logo" />
             <h2><strong>{job.position}</strong></h2>
             <div className="job-info">
-              
               <p><strong>Företag:</strong> {job.company}</p>
               <p><strong>Roll:</strong> {job.role}</p>
               <p><strong>Nivå:</strong> {job.level}</p>
@@ -48,3 +55,4 @@ export default function JobbLista({ jobs }: JobbListaProps) {
     </ul>
   );
 }
+
