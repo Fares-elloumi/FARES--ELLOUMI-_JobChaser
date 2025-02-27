@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./../redux/store";
 import { setSearchTerm } from "./../redux/slices/filterSlice";
@@ -16,6 +17,7 @@ export default function SearchBar() {
           value={searchTerm}
           onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/search.svg" alt="sök" className="search-icon" />
       </div>
     </div>

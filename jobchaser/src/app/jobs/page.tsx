@@ -15,7 +15,7 @@ export default function JobsPage() {
       setFilteredJobs(data);
     };
     fetchJobs();
-  }, []);
+  }, [filteredJobs]);
 
   return (
     <div className="page">

@@ -1,6 +1,8 @@
+"use client";
 import { useSelector } from "react-redux";
 import { RootState } from "./../redux/store";
 import { useGetjobsQuery } from "./../redux/services/jobsAPI";
+import Image from "next/image";
 
 export type Job = {
   id: number;
@@ -35,7 +37,7 @@ export default function JobbLista() {
       {filteredJobs.length > 0 ? (
         filteredJobs.map((job:Job) => (
           <li key={job.id} className="job-card">
-            <img src={job.logo} alt={job.company} className="job-logo" />
+            <Image width="60" height="60" src={job.logo} alt={job.company} className="job-logo" />
             <h2><strong>{job.position}</strong></h2>
             <div className="job-info">
               <p><strong>Företag:</strong> {job.company}</p>

@@ -1,11 +1,15 @@
 "use client";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-
+type FormData = {
+  name: string,
+  email:string,
+  password: string
+}
 export default function SignInPage() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormData) => {
     console.log("Inloggning:", data);
   };
 

@@ -1,11 +1,16 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+type FormData = {
+  name: string,
+  email:string,
+  password: string
+}
 
 export default function SignUpPage() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FormData) => {
     console.log("Registrering:", data);
   };
 

@@ -1,4 +1,4 @@
-"use client";
+
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 // Skapa en kontext för temat
@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // Uppdatera localStorage när dark mode ändras
   useEffect(() => {
     if (isMounted) {
-      localStorage.setItem("darkMode", darkMode.toString());
+      // localStorage.setItem("darkMode", darkMode.toString());
 
       if (darkMode) {
         document.body.classList.add("dark-mode");

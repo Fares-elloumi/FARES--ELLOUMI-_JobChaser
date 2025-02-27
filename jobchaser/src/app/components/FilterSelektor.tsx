@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./../redux/store";
 import { setCategory } from "./../redux/slices/filterSlice";
