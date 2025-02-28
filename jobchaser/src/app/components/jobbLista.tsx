@@ -26,7 +26,7 @@ export default function JobbLista() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Fel vid hämtning av jobb: {JSON.stringify(error)}</div>;
 
-  // 🔥 Filtrera jobben baserat på kategori och sökning
+  // Filtrera jobben baserat på kategori och sökning
   const filteredJobs = jobs?.filter((job:Job) =>
     (!category || job.role === category) &&
     job.position.toLowerCase().includes(searchTerm.toLowerCase())
